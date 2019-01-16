@@ -28,6 +28,7 @@
 	<script src="/static/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
 <body>
+	{% load socialaccount %}
 	<!--[if lt IE 8]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
@@ -66,6 +67,20 @@
 									</ul>
 								</div>
 							</nav>
+							{% if e %}
+
+
+        <div class="alert alert-danger fade in">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+
+	<strong>Warning!</strong> {{e}}</br>
+
+    </div>
+
+
+                                  <!--<font color="red">Please Enter Valid Credentials...</font></br>-->
+
+{%endif%}
 							<div class="tg-admin">
 								<div class="tg-guest">
 									<figure class="tg-adminpic">
@@ -91,7 +106,7 @@
 
 																<button type="submit" class="tg-btn" value="submit">signin</button>																
 																
-																<a class="tg-forgotpassword" href="#">Forgot password?</a>
+																<a class="tg-forgotpassword" href="/forgotpwd/">Forgot password?</a>
 
 															</div>
 														</fieldset>
@@ -164,7 +179,9 @@
 																</div>
 																<div class="col-xs-12">
 																	<button type="submit" class="tg-btn" value="submit">Signup Now</button>
-																	</form>
+													
+
+													</form>
 																</div>
 																<div class="col-xs-12">
 																	<div class="tg-otheroptionforsignup">
@@ -192,6 +209,12 @@
 																				<a href="#">
 																					<i class="fa fa-linkedin"></i>
 																					<i>linkedin</i>
+																				</a>
+																			</li>
+																			<li class="tg-github">
+																				<a href="{% provider_login_url 'github' %}">Github</a>
+																					<i class="fa fa-guthub"></i>
+																					<i>GitHub</i>
 																				</a>
 																			</li>
 																		</ul>

@@ -38,6 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'rest_framework',
+    'simple_history',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.facebook',
 ]
 
 MIDDLEWARE = [
@@ -48,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'simple_history.middleware.HistoryRequestMiddleware',
 ]
 
 ROOT_URLCONF = 'Tutor.urls'
@@ -55,7 +64,7 @@ ROOT_URLCONF = 'Tutor.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -69,8 +78,30 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Tutor.wsgi.application'
+"""
+SOCIALACCOUNT_PROVIDERS = \
+            {'facebook':
+                           {'METHOD': 'oauth2',
+                                       'SCOPE': ['email','public_profile', 'user_friends'],
+                                               'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+                                                       'FIELDS': [
+                                                                       'id',
+                                                                                   'email',
+                                                                                               'name',
+                                                                                                           'first_name',
+                                                                                                                       'last_name',
+                                                                                                                                   'verified',
+                                                                                                                                               'locale',
+                                                                                                                                                           'timezone',
+                                                                                                                                                                       'link',
+                                                                                                                                                                                   'gender',
+                                                                                                                                                                                               'updated_time'],
+                                                               'EXCHANGE_TOKEN': True,
+                                                                       'LOCALE_FUNC': lambda request: 'kr_KR',
+                                                                               'VERIFIED_EMAIL': False,
+                                                                                       'VERSION': 'v2.4'}
 
-
+                                                                                       """
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
@@ -84,7 +115,14 @@ DATABASES = {
         'PORT': '3306',
     }
 }
+AUTHENTICATION_BACKENDS = (
+        "django.contrib.auth.backends.ModelBackend",
+            "allauth.account.auth_backends.AuthenticationBackend",
+            )
 
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = '/'
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
@@ -129,3 +167,8 @@ STATICFILES_DIRS = [
 ]
 
 
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'xxxxxx@gmail.com'
+EMAIL_HOST_PASSWORD ='xxxxx'

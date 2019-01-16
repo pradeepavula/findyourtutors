@@ -1,0 +1,33 @@
+<html>
+	<head>
+	</head>
+	<body>
+	<center>
+	{% if e %}
+	                        <div class="alert alert-danger fade in">
+					                                        <a href="#" class="close" data-dismiss="alert">&times;</a>
+										                                                <strong>Warning!</strong> Unbale to set the Password</br>
+																                                                    </div>
+																																	                                                                                        {%endif%}
+																																												                  {% if  success %}
+																																														                                                 <div class="alert alert-success" role="alert"><b>Success</b> : Password Reset successfully</div>
+																																																				                                                                             {% endif %}
+
+		<body>
+			 <form class="m-t" role="form" action="/resetpwd/{{ uid }}" method="POST">{% csrf_token %}
+				                 <div class="form-group">
+							                     <input type="password" class="form-control" placeholder="Reset Password" required="" name="password">
+									                     </div>
+											                    <button  style="background-color: #1ab394;  width: 20%;  border-radius: 10px;  padding: 8px 0px 8px 0px; color:#fff;" value="submit">Submit</button>
+
+
+													        </div>
+
+
+														                                  <!--<font color="red">Please Enter Valid Credentials...</font></br>-->
+
+			 </form>
+	</center>
+		</body>
+</html>
+
