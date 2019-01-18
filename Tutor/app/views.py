@@ -68,9 +68,14 @@ def login(request):
         user = auth.authenticate(username=username,password=password)
         print user
         if user is not None and user.is_active:
-           from django.contrib import auth
            auth.login(request, user)
-           return HttpResponseRedirect("/profile/")
+           userid = int(user.id)
+           try:
+               up =  UserProfile.objects.get(user_id = userid)
+               if up.user_type == "tutor":
+                   return render(request,"dashboard-tutor.html",locals())
+           except :
+               return render(request,"index.html", locals())
         else:
             e = "yes"
             return render(request,"index.html", locals())

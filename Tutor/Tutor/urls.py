@@ -18,6 +18,7 @@ from django.contrib import admin
 from app.views import index,signup,login,forgotpwd,resetpwd
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^tutor/', include('tutor.urls')),
     url(r'^$',index),
     url(r'^signup/$',signup),
     url(r'^login/$',login),

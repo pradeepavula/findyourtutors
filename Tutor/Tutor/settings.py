@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'tutor',
     'rest_framework',
     'simple_history',
     'django.contrib.sites',
@@ -170,5 +171,5 @@ STATICFILES_DIRS = [
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'xxxxxx@gmail.com'
-EMAIL_HOST_PASSWORD ='xxxxx'
+EMAIL_HOST_USER = 'spanjala87@gmail.com'
+EMAIL_HOST_PASSWORD ='sachin@2012'
