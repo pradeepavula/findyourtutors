@@ -2,7 +2,7 @@ import re
 from app.models import *
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from app.models import UserProfile
+from app.models import UserType
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User

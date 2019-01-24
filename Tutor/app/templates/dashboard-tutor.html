@@ -25,7 +25,7 @@
 	<link rel="stylesheet" href="/static/css/main.css">
 	<link rel="stylesheet" href="/static/css/color.css">
 	<link rel="stylesheet" href="/static/css/responsive.css">
-	<script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+	<script src="/static/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
 <body>
 	<!--[if lt IE 8]>
@@ -93,7 +93,7 @@
 														<li><a href="dashboard-tuition-favorites-listing.html">favorites list</a></li>
 														<li><a href="dashboard-tuition-Schedule.html">schedule</a></li>
 														<li><a href="dashboard-tuition-invoices.html">invoices</a></li>
-														<li><a href="dashboard-tuition-profile-setting.html">profile setting</a></li>
+														<li><a href="/tutor/tutorprofile/">profile setting</a></li>
 														<li><a href="dashboard-tuition-centres-academics-settings.html">academic settings</a></li>
 														<li><a href="dashboard-tuition-centres-privacy-settings.html">privacy setting</a></li>
 														<li><a href="dashboard-tuition-security-setting.html">security setting</a></li>
@@ -103,11 +103,11 @@
 												<li class="tg-hasdropdown tg-active">
 													<a href="javascript:void(0);">dashboard tutor</a>
 													<ul class="tg-dropdownmenu">
-														<li><a href="dashboard-tutor.html">dashboard tutor</a></li>
+														<li class="tg-active"><a href="dashboard-tutor.html">dashboard tutor</a></li>
 														<li><a href="dashboardtutor-favorites-listing.html">favorites list</a></li>
 														<li><a href="dashboardtutor-myschedule.html">schedule</a></li>
 														<li><a href="dashboard-tutor-invoices.html">invoices</a></li>
-														<li class="tg-active"><a href="dashboard-tutor-profile-settings.html">profile setting</a></li>
+														<li><a href="dashboard-tutor-profile-settings.html">profile setting</a></li>
 														<li><a href="dashboard-tutor-privacy-settings.html">privacy setting</a></li>
 														<li><a href="dashboard-tutor-security-settings.html">security setting</a></li>
 														<li><a href="dashboard-tutor-upgradepackage.html">upgrade package</a></li>
@@ -138,7 +138,7 @@
 										<a href="#"><img src="/static/images/icons/icon-01.png" alt="image description"></a>
 									</figure>
 									<div class="tg-message">
-										<em>Howdy, Guest!</em>
+										<em>{{user.username}}</em>
 										<div class="tg-loginsinguplinks">
 											<div class="dropdown tg-dropdown">
 												<button id="tg-signin" class="tg-signin tg-btndropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign In</button>
@@ -419,14 +419,14 @@
 								</time>
 								<nav id="tg-dashboardnav" class="tg-dashboardnav">
 									<ul>
-										<li>
+										<li class="tg-active">
 											<a href="dashboard-tutor.html">
 												<i class="fa fa-line-chart"></i>
 												<span>Insights</span>
 											</a>
 										</li>
-										<li class="tg-warningmessage tg-active">
-											<a href="dashboard-tutor-profile-settings.html">
+										<li class="tg-warningmessage">
+											<a href="/tutor/tutorprofile/">
 												<i class="fa fa-user"></i>
 												<span>Profile Settings</span>
 											</a>
@@ -456,7 +456,7 @@
 											</a>
 										</li>
 										<li>
-											<a href="dashboard-tutor-security-settings.html">
+											<a href="/tutor/tutorsecurity/">
 												<i class="fa fa-gears"></i>
 												<span>Security Settings</span>
 											</a>
@@ -519,548 +519,202 @@
 									</div>
 								</div>
 							</div>
-							<form class="tg-formtheme">
-								<fieldset>
-									<div class="row">
-										<div class="col-md-6 col-sm-12 col-xs-12">
-											<div class="form-group">
-												<h3>Upload Profile Photo</h3>
-												<div class="tg-fileupload tg-uploaddp tg-uploading">
-													<div class="tg-dragfiles">
-														<label for="file1">
-															<span class="tg-filetype">.jpg</span>
-															<span class="tg-text">Drag &amp; Drop</span>
-															<span>Your files here, or <span>Browse</span> <i class="fa fa-exclamation-circle"></i></span>
-															<span class="tg-loader"><i class="fa fa-spinner"></i></span>
-															<input id="file1" type="file" name="file" class="form-control">
-														</label>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-12 col-xs-12">
-											<div class="form-group">
-												<h3>Upload Timeline Photo</h3>
-												<div class="tg-timelinedp">
-													<figure>
-														<img src="/static/images/img-03.jpg" alt="image description">
-														<figcaption><i class="fa fa-close"></i></figcaption>
-													</figure>
-												</div>
-											</div>
-										</div>
-									</div>
-								</fieldset>
-								<fieldset>
-									<div class="row">
-										<div class="col-sm-12 col-xs-12">
-											<h3>Personal Details</h3>
-										</div>
-										<div class="col-md-6 col-sm-12 col-xs-12">
-											<div class="form-group">
-												<span class="tg-select">
-													<select>
-														<option>Gender *</option>
-														<option>Male</option>
-														<option>Female</option>
-													</select>
-												</span>
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-12 col-xs-12">
-											<div class="form-group">
-												<input type="text" name="fullname" class="form-control" placeholder="Full Name *">
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-12 col-xs-12">
-											<div class="form-group">
-												<input type="text" name="age" class="form-control" placeholder="Age *">
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-12 col-xs-12">
-											<div class="form-group">
-												<span class="tg-select">
-													<select data-placeholder="Choose a Subject" class="chosen-select form-control" multiple tabindex="2">
-														<option value="Accounting">Accounting</option>
-														<option value="Arabic">Arabic</option>
-														<option value="Art and Design">Art and Design</option>
-														<option value="Biology">Biology</option>
-														<option value="Business">Business</option>
-														<option value="Business Studies">Business Studies</option>
-														<option value="Chemistry">Chemistry</option>
-														<option value="Classical Studies">Classical Studies</option>
-														<option value="Computer Science">Computer Science</option>
-														<option value="Computing">Computing</option>
-														<option value="Design and Technology">Design and Technology</option>
-													</select>
-												</span>
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-12 col-xs-12">
-											<div class="form-group">
-												<input type="email" name="email" class="form-control" placeholder="Email *">
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-12 col-xs-12">
-											<div class="form-group">
-												<input type="text" name="Contact" class="form-control" placeholder="Contact *">
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-12 col-xs-12">
-											<div class="form-group">
-												<input type="text" name="fax" class="form-control" placeholder="Fax">
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-12 col-xs-12">
-											<div class="form-group">
-												<input type="text" name="skype" class="form-control" placeholder="Skype *">
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-12 col-xs-12">
-											<div class="form-group">
-												<input type="text" name="url" class="form-control" placeholder="URL">
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-12 col-xs-12">
-											<div class="form-group tg-inputplusselect">
-												<input type="text" name="rate" class="form-control" placeholder="Rate Per Hour *">
-												<span class="tg-select">
-													<select>
-														<option value="$USD">$ USD</option>
-														<option value="$USD">$ USD</option>
-														<option value="$USD">$ USD</option>
-													</select>
-												</span>
-											</div>
-										</div>
-									</div>
-								</fieldset>
-								<fieldset>
-									<div class="row">
-										<div class="col-sm-12 col-xs-12">
-											<h3>Add Your Location</h3>
-										</div>
-										<div class="col-md-6 col-sm-12 col-xs-12">
-											<div class="form-group">
-												<span class="tg-select">
-													<select>
-														<option>Country *</option>
-														<option>Male</option>
-														<option>Female</option>
-													</select>
-												</span>
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-12 col-xs-12">
-											<div class="form-group">
-												<span class="tg-select">
-													<select>
-														<option>State *</option>
-														<option>Male</option>
-														<option>Female</option>
-													</select>
-												</span>
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-12 col-xs-12">
-											<div class="form-group">
-												<span class="tg-select">
-													<select>
-														<option>City *</option>
-														<option>Male</option>
-														<option>Female</option>
-													</select>
-												</span>
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-12 col-xs-12">
-											<div class="form-group">
-												<span class="tg-geolocationicon">
-													<input type="text" name="geolocation" class="form-control" placeholder="Geo Location">
-												</span>
-											</div>
-										</div>
-										<div class="col-sm-12 col-xs-12">
-											<div class="form-group">
-												<div id="tg-addressmap" class="tg-addressmap"></div>
-											</div>
-										</div>
-									</div>
-								</fieldset>
-								<fieldset>
-									<div class="row">
-										<div class="col-sm-12 col-xs-12">
-											<h3>Social Details</h3>
-										</div>
-										<div class="col-sm-12 col-xs-12">
-											<input type="text" class="tg-url form-control" placeholder="Add Facebook URL">
-											<input type="text" class="tg-url form-control" placeholder="Add Twitter URL">
-											<input type="text" class="tg-url form-control" placeholder="Add Linkedin URL">
-											<input type="text" class="tg-url form-control" placeholder="Add Google Plus URL">
-											<input type="text" class="tg-url form-control" placeholder="Add Facebook URL">
-											<input type="text" class="tg-url form-control" placeholder="Add Youtube URL">
-											<div class="tg-addinputfield">
-												<span class="tg-select">
-													<select>
-														<option>Select Social</option>
-														<option>Facebook</option>
-														<option>Twitter</option>
-														<option>Linkedin</option>
-														<option>Rss</option>
-														<option>dribbble</option>
-														<option>Google+</option>
-														<option>YouTube</option>
-														<option>LinkedIn Pulse</option>
-														<option>Tumblr</option>
-														<option>Pinterest</option>
-														<option>Instagram</option>
-													</select>
-												</span>
-												<a class="tg-btn" href="javascript:void(0);">add now</a>
-											</div>
-										</div>
-									</div>
-								</fieldset>
-								<fieldset>
-									<div class="row">
-										<div class="col-sm-12 col-xs-12">
-											<h3>About Me</h3>
-										</div>
-										<div class="col-sm-12 col-xs-12">
-											<textarea class="form-control" placeholder="Description"></textarea>
-										</div>
-									</div>
-								</fieldset>
-								<fieldset>
-									<div class="row">
-										<div class="col-sm-12 col-xs-12">
-											<h3>Add Your Skills</h3>
-											<ul class="tg-list tg-skilllist">
-												<li>Labore et dolore magna aliqua enim ad minim veniam quis nostrud exercitation ullamco <i class="fa fa-close"></i></li>
-												<li>Aliquip ex ea commodo consequat aute irure dolor in reprehenderit <i class="fa fa-close"></i></li>
-												<li>Voluptate velit esse cillum dolore eu fugiat nulla pariatur cepteur sint occaecat <i class="fa fa-close"></i></li>
-												<li>Cupidatat non proident in culpa qui officia deserunt mollit anim id <i class="fa fa-close"></i></li>
-											</ul>
-											<div class="tg-addinputfield">
-												<input type="text" name="skill" class="form-control" placeholder="Add Your skills">
-												<a class="tg-btn" href="javascript:void(0);">add now</a>
-											</div>
-										</div>
-									</div>
-								</fieldset>
-								<fieldset>
-									<div class="row">
-										<div class="col-sm-12 col-xs-12">
-											<h3>Add Your Experience</h3>
-											<ul class="tg-list tg-experiencelist">
-												<li>
-													<i class="fa fa-close"></i>
-													<div class="tg-experiencetitle">
-														<h4>Lecturer, Department Of Mathematics (Jan, 2016 - Present)</h4>
-													</div>
-													<div class="tg-subjects">Mathematics &amp; Statistics</div>
-													<div class="tg-description">
-														<p>Consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident, sunt in culpa officia deserunt mollit anim id est laborum ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto.</p>
-													</div>
-												</li>
-											</ul>
-											<div class="tg-addexperience">
-												<div class="col-md-6 col-sm-12 col-xs-12">
-													<div class="form-group">
-														<input type="text" name="url" class="form-control" placeholder="Company Name">
-													</div>
-												</div>
-												<div class="col-md-6 col-sm-12 col-xs-12">
-													<div class="form-group">
-														<input type="text" name="rate" class="form-control" placeholder="Department">
-													</div>
-												</div>
-												<div class="col-md-6 col-sm-12 col-xs-12">
-													<div class="form-group tg-inputicon">
-														<input type="text" class="tg-datepicker form-control" placeholder="Starting Date">
-														<span class="fa fa-calendar-check-o"></span>
-													</div>
-												</div>
-												<div class="col-md-6 col-sm-12 col-xs-12">
-													<div class="form-group tg-inputicon">
-														<input type="text" class="tg-datepicker form-control" placeholder="Ending Date">
-														<span class="fa fa-calendar-check-o"></span>
-													</div>
-												</div>
-												<div class="col-sm-12 col-xs-12">
-													<div class="form-group">
-														<textarea class="form-control" placeholder="Description"></textarea>
-													</div>
-												</div>
-												<div class="col-sm-12 col-xs-12">
-													<button type="submit" class="tg-btn">Add now</button>
-													<span class="tg-checkbox">
-														<input type="checkbox" id="currentjob1" name="currentjob" value="I’m doing this currently.">
-														<label for="currentjob1">I’m doing this currently.</label>
-													</span>
-												</div>
-											</div>
-										</div>
-									</div>
-								</fieldset>
-								<fieldset>
-									<div class="row">
-										<div class="col-sm-12 col-xs-12">
-											<h3>Add Your Qualification</h3>
-											<ul class="tg-list tg-experiencelist">
-												<li>
-													<i class="fa fa-close"></i>
-													<div class="tg-experiencetitle">
-														<h4>Bachelor of Mathematic (Ongoing)</h4>
-													</div>
-													<div class="tg-subjects">University of Manchester</div>
-													<div class="tg-description">
-														<p>Consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
-													</div>
-												</li>
-											</ul>
-											<div class="tg-addexperience">
-												<div class="col-sm-6 col-xs-12">
-													<div class="form-group">
-														<input type="text" name="url" class="form-control" placeholder="Major Subject">
-													</div>
-												</div>
-												<div class="col-sm-6 col-xs-12">
-													<div class="form-group">
-														<input type="text" name="rate" class="form-control" placeholder="Institue Name">
-													</div>
-												</div>
-												<div class="col-sm-6 col-xs-12">
-													<div class="form-group tg-inputicon">
-														<input type="text" class="tg-datepicker form-control" placeholder="Starting Date">
-														<span class="fa fa-calendar-check-o"></span>
-													</div>
-												</div>
-												<div class="col-sm-6 col-xs-12">
-													<div class="form-group tg-inputicon">
-														<input type="text" class="tg-datepicker form-control" placeholder="Ending Date">
-														<span class="fa fa-calendar-check-o"></span>
-													</div>
-												</div>
-												<div class="col-sm-12 col-xs-12">
-													<div class="form-group">
-														<textarea class="form-control" placeholder="Description"></textarea>
-													</div>
-												</div>
-												<div class="col-sm-12 col-xs-12">
-													<button type="submit" class="tg-btn">Add now</button>
-													<span class="tg-checkbox">
-														<input type="checkbox" id="currentjob2" name="currentjob" value="I’m doing this currently.">
-														<label for="currentjob2">I’m doing this currently.</label>
-													</span>
-												</div>
-											</div>
-										</div>
-									</div>
-								</fieldset>
-								<fieldset>
-									<div class="row">
-										<div class="col-sm-12 col-xs-12">
-											<h3>Add Your Honour &amp; Awards</h3>
-										</div>
-										<ul class="tg-list tg-experiencelist">
+							<!--
+							<div class="tg-alertmessages">
+								<div class="alert alert-success tg-alertmessage fade in">
+									<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+									<i class="fa fa-check"></i>
+									<span><strong>success Message.</strong> Adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minimati.</span>
+								</div>
+								<div class="alert alert-info tg-alertmessage fade in">
+									<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+									<i class="fa fa-commenting-o"></i>
+									<span><strong>info Message.</strong> Adipisicing elit, sed do eiusmod temp labore et dolore magna aliqua enim ad minimati.</span>
+								</div>
+								<div class="alert alert-warning tg-alertmessage fade in">
+									<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+									<i class="fa fa-exclamation-triangle"></i>
+									<span><strong>warning Message.</strong> Adipisicing elit, sed do eiusmod tempor  dolore magna aliqua enim ad minimati.</span>
+								</div>
+								<div class="alert alert-danger tg-alertmessage fade in">
+									<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+									<i class="fa fa-bug"></i>
+									<span><strong>Error Message.</strong> Adipisicing elit, sed do eiusmod et dolore magna aliqua enim ad minimati.</span>
+								</div>
+							-->
+							</div>
+							<div class="tg-contentbox">
+								<div class="row">
+									<div class="col-md-8 col-sm-12 col-xs-12">
+										<h2>New Messages</h2>
+										<ul class="tg-messages">
+											<li class="th-unread">
+												<strong>Dante Edberg: </strong>
+												<span>Cliqua enim ad minim veniam asostrud exierat ullacoi laborisi nisi utmodo</span>
+												<time datetime="2011-01-12">5 min ago</time>
+											</li>
+											<li class="th-unread">
+												<strong>Mabelle Agostini: </strong>
+												<span>Cliqua enim ad minim veniam asostrud exierat ullacoi laborisi nisi utmodo</span>
+												<time datetime="2011-01-12">7 min ago</time>
+											</li>
+											<li class="th-unread">
+												<strong>Ken Boros: </strong>
+												<span>Cliqua enim ad minim veniam asostrud exierat ullacoi laborisi nisi utmodo</span>
+												<time datetime="2011-01-12">9 min ago</time>
+											</li>
 											<li>
-												<i class="fa fa-close"></i>
-												<div class="tg-experiencetitle">
-													<h4>Best Speech On Parent Meeting (Mar, 2015)</h4>
+												<strong>Kattie Frizzell: </strong>
+												<span>Cliqua enim ad minim veniam asostrud exierat ullacoi laborisi nisi utmodo</span>
+												<time datetime="2011-01-12">40 min ago</time>
+											</li>
+											<li>
+												<strong>Saturnina Lynch: </strong>
+												<span>Cliqua enim ad minim veniam asostrud exierat ullacoi laborisi nisi utmodo</span>
+												<time datetime="2011-01-12">1 year ago</time>
+											</li>
+										</ul>
+										<a class="tg-btn tg-btn-lg" href="#">view all</a>
+									</div>
+									<div class="col-md-4 col-sm-12 col-xs-12">
+										<h2>Total Favorites</h2>
+										<div class="tg-favoritesadded">
+											<span><span>6298</span>Favorites Added</span>
+											<p><strong>You're Awesome!</strong>People Like You &amp; added you in their favorites list.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tg-contentbox">
+								<h2>Views Per Month</h2>
+								<div id="tg-viewpermonthchart" class="tg-viewpermonthchart tg-viewschart"></div>
+							</div>
+							<div class="tg-contentbox">
+								<h2>Recent Reviews</h2>
+								<div class="row">
+									<div class="col-md-4 col-sm-12 col-xs-12">
+										<div class="tg-ratingbox">
+											<div class="tg-averagerating">
+												<h3>Average Rating</h3>
+												<em>4.7</em>
+												<span class="tg-stars"><span></span></span>
+											</div>
+											<div id="tg-userskill" class="tg-userskill">
+												<div class="tg-skill">
+													<span class="tg-skillname">5 Stars</span>
+													<span class="tg-skillpercentage">75%</span>
+													<div class="tg-skillbox">
+														<div class="tg-skillholder" data-percent="75%">
+															<div class="tg-skillbar" style="width: 75%;"></div>
+														</div>
+													</div>
 												</div>
-												<div class="tg-subjects">University of Manchester</div>
-												<div class="tg-description">
-													<p>Consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+												<div class="tg-skill">
+													<span class="tg-skillname">4 Stars</span>
+													<span class="tg-skillpercentage">64%</span>
+													<div class="tg-skillbox">
+														<div class="tg-skillholder" data-percent="64%">
+															<div class="tg-skillbar" style="width: 64%;"></div>
+														</div>
+													</div>
+												</div>
+												<div class="tg-skill">
+													<span class="tg-skillname">3 Stars</span>
+													<span class="tg-skillpercentage">30%</span>
+													<div class="tg-skillbox">
+														<div class="tg-skillholder" data-percent="30%">
+															<div class="tg-skillbar" style="width: 30%;"></div>
+														</div>
+													</div>
+												</div>
+												<div class="tg-skill">
+													<span class="tg-skillname">2 Stars</span>
+													<span class="tg-skillpercentage">46%</span>
+													<div class="tg-skillbox">
+														<div class="tg-skillholder" data-percent="46%">
+															<div class="tg-skillbar" style="width: 46%;"></div>
+														</div>
+													</div>
+												</div>
+												<div class="tg-skill">
+													<span class="tg-skillname">1 Stars</span>
+													<span class="tg-skillpercentage">16%</span>
+													<div class="tg-skillbox">
+														<div class="tg-skillholder" data-percent="16%">
+															<div class="tg-skillbar" style="width: 16%;"></div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-8 col-sm-12 col-xs-12">
+										<ul class="tg-comment">
+											<li>
+												<div class="tg-commenter">
+													<a class="tg-btntogglecontent" href="#"><i class="fa fa-angle-down"></i></a>
+													<figure class="tg-commenterimg">
+														<img src="/static/images/avatar/avatarimg-01.jpg" alt="commenter image">
+													</figure>
+													<div class="tg-commenterinfo">
+														<div class="tg-authorhead">
+															<div class="tg-authorname">
+																<h3><a href="#">Dante Edberg</a></h3>
+																<time datetime="2016-10-10">2 days ago</time>
+															</div>
+															<span class="tg-stars"><span></span></span>
+														</div>
+														<div class="tg-description">
+															<p>Cliqua enim ad minim veniam quis nostrud exerciton ullacoi laborisi nisi ut aliquip exmmodo consequat irure.</p>
+														</div>
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="tg-commenter">
+													<a class="tg-btntogglecontent" href="#"><i class="fa fa-angle-down"></i></a>
+													<figure class="tg-commenterimg">
+														<img src="/static/images/avatar/avatarimg-02.jpg" alt="commenter image">
+													</figure>
+													<div class="tg-commenterinfo">
+														<div class="tg-authorhead">
+															<div class="tg-authorname">
+																<h3><a href="#">Dante Edberg</a></h3>
+																<time datetime="2016-10-10">2 days ago</time>
+															</div>
+															<span class="tg-stars"><span></span></span>
+														</div>
+														<div class="tg-description">
+															<p>Cliqua enim ad minim veniam quis nostrud exerciton ullacoi laborisi nisi ut aliquip exmmodo consequat irure.</p>
+														</div>
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="tg-commenter">
+													<a class="tg-btntogglecontent" href="#"><i class="fa fa-angle-down"></i></a>
+													<figure class="tg-commenterimg">
+														<img src="/static/images/avatar/avatarimg-03.jpg" alt="commenter image">
+													</figure>
+													<div class="tg-commenterinfo">
+														<div class="tg-authorhead">
+															<div class="tg-authorname">
+																<h3><a href="#">Dante Edberg</a></h3>
+																<time datetime="2016-10-10">2 days ago</time>
+															</div>
+															<span class="tg-stars"><span></span></span>
+														</div>
+														<div class="tg-description">
+															<p>Cliqua enim ad minim veniam quis nostrud exerciton ullacoi laborisi nisi ut aliquip exmmodo consequat irure.</p>
+														</div>
+													</div>
 												</div>
 											</li>
 										</ul>
-										<div class="tg-addexperience">
-											<div class="col-sm-12 col-xs-12">
-												<div class="form-group">
-													<input type="text" name="awardtitle" class="form-control" placeholder="Award Title">
-												</div>
-											</div>
-											<div class="col-sm-6 col-xs-12">
-												<div class="form-group">
-													<input type="text" name="occasion" class="form-control" placeholder="Occasion">
-												</div>
-											</div>
-											<div class="col-sm-6 col-xs-12">
-												<div class="form-group tg-inputicon">
-													<input type="text" class="tg-datepicker form-control" placeholder="Date">
-													<span class="fa fa-calendar-check-o"></span>
-												</div>
-											</div>
-											<div class="col-sm-12 col-xs-12">
-												<div class="form-group">
-													<textarea class="form-control" placeholder="Description"></textarea>
-												</div>
-											</div>
-											<div class="col-sm-12 col-xs-12">
-												<button type="submit" class="tg-btn">Add now</button>
-												<span class="tg-checkbox">
-													<input type="checkbox" id="currentjob" name="currentjob" value="I’m doing this currently.">
-													<label for="currentjob">I’m doing this currently.</label>
-												</span>
-											</div>
-										</div>
+										<a class="tg-btn tg-btn-lg" href="#">view all</a>
 									</div>
-								</fieldset>
-								<fieldset>
-									<div class="row">
-										<div class="col-sm-12 col-xs-12">
-											<h3>Add Presentation Video Link</h3>
-											<ul class="tg-videos">
-												<li>
-													<figure><a href="#"><img src="/static/images/videos/img-01.jpg" alt="image description"></a></figure>
-													<div class="tg-description">
-														<a href="#"><i class="fa fa-pencil"></i></a>
-														<span class="tg-videolink"><a href="#">www.youtube.com/tutortutortutortutortutortutortutortutor</a></span>
-														<a class="tg-btndelete" href="#"><i class="fa fa-close"></i></a>
-													</div>
-												</li>
-												<li>
-													<figure><a href="#"><img src="/static/images/videos/img-02.jpg" alt="image description"></a></figure>
-													<div class="tg-description">
-														<a href="#"><i class="fa fa-pencil"></i></a>
-														<span class="tg-videolink"><a href="#">www.youtube.com/tutortutortutortutortutortutortutortutor</a></span>
-														<a class="tg-btndelete" href="#"><i class="fa fa-close"></i></a>
-													</div>
-												</li>
-												<li>
-													<figure><a href="#"><img src="/static/images/videos/img-03.jpg" alt="image description"></a></figure>
-													<div class="tg-description">
-														<a href="#"><i class="fa fa-pencil"></i></a>
-														<span class="tg-videolink"><a href="#">www.youtube.com/tutortutortutortutortutortutortutortutor</a></span>
-														<a class="tg-btndelete" href="#"><i class="fa fa-close"></i></a>
-													</div>
-												</li>
-											</ul>
-											<div class="tg-addinputfield">
-												<input type="text" name="videolink" class="form-control" placeholder="Video Link">
-												<a class="tg-btn" href="javascript:void(0);">add now</a>
-											</div>
-										</div>
-									</div>
-								</fieldset>
-								<fieldset>
-									<div class="row">
-										<div class="col-sm-12 col-xs-12">
-											<h3>Upload Photo Gallery</h3>
-										</div>
-										<div class="col-sm-5 col-xs-12">
-											<div class="tg-fileupload tg-uploading">
-												<div class="tg-dragfiles">
-													<label for="file2">
-														<span class="tg-filetype">.jpg</span>
-														<span class="tg-text">Drag &amp; Drop</span>
-														<span>Your files here, or <span>Browse</span> <i class="fa fa-exclamation-circle"></i></span>
-														<span class="tg-loader"><i class="fa fa-spinner"></i></span>
-														<input id="file2" type="file" name="file" class="form-control">
-													</label>
-												</div>
-											</div>
-										</div>
-										<div class="col-sm-7 col-xs-12">
-											<div class="tg-gallery">
-												<div class="tg-galleryimg">
-													<figure>
-														<img src="/static/images/thumbnails/img-07.jpg" alt="image description">
-														<figcaption><i class="fa fa-close"></i></figcaption>
-													</figure>
-												</div>
-												<div class="tg-galleryimg">
-													<figure>
-														<img src="/static/images/thumbnails/img-08.jpg" alt="image description">
-														<figcaption><i class="fa fa-close"></i></figcaption>
-													</figure>
-												</div>
-												<div class="tg-galleryimg">
-													<figure>
-														<img src="/static/images/thumbnails/img-09.jpg" alt="image description">
-														<figcaption><i class="fa fa-close"></i></figcaption>
-													</figure>
-												</div>
-												<div class="tg-galleryimg">
-													<figure>
-														<img src="/static/images/thumbnails/img-10.jpg" alt="image description">
-														<figcaption><i class="fa fa-close"></i></figcaption>
-													</figure>
-												</div>
-												<div class="tg-galleryimg">
-													<figure>
-														<img src="/static/images/thumbnails/img-11.jpg" alt="image description">
-														<figcaption><i class="fa fa-close"></i></figcaption>
-													</figure>
-												</div>
-												<div class="tg-galleryimg">
-													<figure>
-														<img src="/static/images/thumbnails/img-12.jpg" alt="image description">
-														<figcaption><i class="fa fa-close"></i></figcaption>
-													</figure>
-												</div>
-												<div class="tg-galleryimg">
-													<figure>
-														<img src="/static/images/thumbnails/img-13.jpg" alt="image description">
-														<figcaption><i class="fa fa-close"></i></figcaption>
-													</figure>
-												</div>
-												<div class="tg-galleryimg">
-													<figure>
-														<img src="/static/images/thumbnails/img-14.jpg" alt="image description">
-														<figcaption><i class="fa fa-close"></i></figcaption>
-													</figure>
-												</div>
-												<div class="tg-galleryimg">
-													<figure>
-														<img src="/static/images/thumbnails/img-15.jpg" alt="image description">
-														<figcaption><i class="fa fa-close"></i></figcaption>
-													</figure>
-												</div>
-												<div class="tg-galleryimg">
-													<figure>
-														<img src="/static/images/thumbnails/img-16.jpg" alt="image description">
-														<figcaption><i class="fa fa-close"></i></figcaption>
-													</figure>
-												</div>
-												<div class="tg-galleryimg tg-uploading">
-													<figure>
-														<img src="/static/images/thumbnails/img-17.jpg" alt="image description">
-														<span class="tg-loader"><i class="fa fa-spinner"></i></span>
-														<span class="tg-uploadingbar"></span>
-													</figure>
-												</div>
-												<div class="tg-galleryimg tg-uploading">
-													<figure>
-														<img src="/static/images/thumbnails/img-18.jpg" alt="image description">
-														<span class="tg-loader"><i class="fa fa-spinner"></i></span>
-														<span class="tg-uploadingbar"></span>
-													</figure>
-												</div>
-												<div class="tg-galleryimg tg-uploading">
-													<figure>
-														<img src="/static/images/thumbnails/img-19.jpg" alt="image description">
-														<span class="tg-loader"><i class="fa fa-spinner"></i></span>
-														<span class="tg-uploadingbar"></span>
-													</figure>
-												</div>
-												<div class="tg-galleryimg tg-uploading">
-													<figure>
-														<img src="/static/images/thumbnails/img-20.jpg" alt="image description">
-														<span class="tg-loader"><i class="fa fa-spinner"></i></span>
-														<span class="tg-uploadingbar"></span>
-													</figure>
-												</div>
-											</div>
-										</div>
-									</div>
-								</fieldset>
-								<fieldset>
-									<a class="tg-btn" href="#">Update All Changes</a>
-									<span class="tg-note">* Click <strong>update all changes</strong> to update latest added detail (s).</span>
-								</fieldset>
-							</form>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -1234,5 +888,39 @@
 	<script src="js/appear.js"></script>
 	<script src="js/gmap3.js"></script>
 	<script src="js/main.js"></script>
+	<script>
+		google.charts.load('current', {'packages':['corechart']});
+		google.charts.setOnLoadCallback(drawChart);
+		function drawChart() {
+			var data = google.visualization.arrayToDataTable([
+				['Month', 'Views'],
+				["jan", 5],
+				["Feb", 15],
+				["Mar", 8],
+				["Apr", 12],
+				["May", 25],
+				["Jun", 26],
+				["Jul", 40],
+				["Aug", 27],
+				["Sep", 37],
+				["Oct", 45],
+				["Nov", 48],
+				["Dec", 39],
+			]);
+			var options = {
+				title: '',
+				legend: 'none',
+				series: {0: {color: '#22b0e5'},},
+				lineWidth: 0,
+				chartArea: {height: 300,},
+				pointSize: 10,
+				series: {0: { pointShape: 'circle' },},
+				tooltip: {isHtml: true},
+				
+			};
+			var chart = new google.visualization.AreaChart(document.getElementById('tg-viewpermonthchart'));
+			chart.draw(data, options);
+		}
+	</script>
 </body>
 </html>

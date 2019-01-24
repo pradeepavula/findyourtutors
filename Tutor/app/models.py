@@ -9,7 +9,7 @@ from simple_history.models import HistoricalRecords
 
 
 
-class UserProfile(models.Model):
+class UserType(models.Model):
     user_type = models.CharField(max_length=50)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     history = HistoricalRecords()

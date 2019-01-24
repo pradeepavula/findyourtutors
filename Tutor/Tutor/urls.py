@@ -16,6 +16,8 @@ Including another URLconf
 from django.conf.urls import url,include
 from django.contrib import admin
 from app.views import index,signup,login,forgotpwd,resetpwd
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^tutor/', include('tutor.urls')),
@@ -26,3 +28,5 @@ urlpatterns = [
     url(r'^forgotpwd/$', forgotpwd),
     url(r'^resetpwd/(?P<uid>\d+)$', resetpwd),
 ]
+if settings.DEBUG:
+        urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

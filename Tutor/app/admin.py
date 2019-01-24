@@ -10,5 +10,5 @@ from django.contrib import admin
 from simple_history.admin import SimpleHistoryAdmin
 
 
-admin.site.register(UserProfile,SimpleHistoryAdmin)
+admin.site.register(UserType,SimpleHistoryAdmin)
 admin.site.register(Profile,SimpleHistoryAdmin)

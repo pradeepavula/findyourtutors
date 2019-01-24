@@ -6,7 +6,7 @@ from django.shortcuts import render
 
 from django.contrib.auth.models import User
 
-from app.models import UserProfile,Profile
+from app.models import UserType
 # Create your views here.
 
 from django.http import HttpResponseRedirect,HttpResponse
@@ -71,7 +71,7 @@ def login(request):
            auth.login(request, user)
            userid = int(user.id)
            try:
-               up =  UserProfile.objects.get(user_id = userid)
+               up =  UserType.objects.get(user_id = userid)
                if up.user_type == "tutor":
                    return render(request,"dashboard-tutor.html",locals())
            except :
