@@ -24,6 +24,8 @@ def TutorSecurity(request):
                if new_password == confirm_password:
                    user_id.set_password(new_password)
                    user_id.save()
+                   success = "successfully update the password"
+                   return render(request,"dashboard-tutor-security-settings.html",locals())
                else:
                    error = "password mismatch"
                    return render(request,"dashboard-tutor-security-settings.html",locals())

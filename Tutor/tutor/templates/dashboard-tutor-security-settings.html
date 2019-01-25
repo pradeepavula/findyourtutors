@@ -28,22 +28,6 @@
 	<script src="/static/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
 <body>
-	{% if error %}
-
-
-	        <div class="alert alert-danger fade in">
-			        <a href="#" class="close" data-dismiss="alert">&times;</a>
-
-				<strong>Warning!</strong> {{error}}</br>
-
-					    </div>
-
-
-					                                      <!--<font color="red">Please Enter Valid Credentials...</font></br>-->
-
-									      {%endif%}
-	<!--[if lt IE 8]>
-		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
 	<!--************************************
 			Wrapper Start
@@ -533,6 +517,20 @@
 									</div>
 								</div>
 							</div>
+
+							 {% if error %}
+
+							                 <div class="alert alert-danger fade in">
+										                                 <a href="#" class="close" data-dismiss="alert">&times;</a>
+														                                 <strong>Warning!</strong> {{error}}</br>
+																		                                             {% else %}
+																							                                                                              <div class="alert alert-success fade in">
+																																	                                                                                                                       <a href="#" class="close" data-dismiss="alert">&times;</a>
+
+																																															                  <strong>Success</strong> {{success}}</br>
+																		                                             </div>
+
+																																	                                                                                 {%endif%}
 							<form class="tg-formtheme" action ="/tutor/tutorsecurity/" method ="POST">{%csrf_token%}>
 								<fieldset>
 									<div class="row">
